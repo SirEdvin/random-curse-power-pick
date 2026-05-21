@@ -25,6 +25,12 @@ Verify the local dataset:
 npm run verify:dataset
 ```
 
+## GitHub Pages Deployment
+
+The production site is configured for repository Pages at `https://siredvin.github.io/random-curse-power-pick/`.
+
+GitHub Pages must use GitHub Actions as its source. Pushes to `main` run dataset verification, lint, and build, then deploy the `dist` artifact.
+
 ## How It Works
 
 - The user enters a nickname in the accessible form.
