@@ -46,7 +46,8 @@ function App() {
         <h1 id="page-title">Random Curse Power Pick</h1>
         <p className="lede">
           Enter a name and receive one deterministic anime-occult ability from a local
-          vault of {CURSE_POWER_COUNT.toLocaleString()} ridiculous cursed powers.
+          vault of {CURSE_POWER_COUNT.toLocaleString()} distinct cursed techniques, each with
+          a binding drawback and Domain Expansion.
         </p>
 
         <form className="picker-form" onSubmit={handleSubmit}>
@@ -79,6 +80,20 @@ function App() {
             <p className="drawback">
               <strong>Binding drawback:</strong> {result.drawback}
             </p>
+            <section className="domain-panel" aria-labelledby="domain-title">
+              <p className="domain-kicker">Domain Expansion</p>
+              <h3 id="domain-title">{result.domain.name}</h3>
+              <dl>
+                <div>
+                  <dt>Environment</dt>
+                  <dd>{result.domain.environment}</dd>
+                </div>
+                <div>
+                  <dt>Sure-hit effect</dt>
+                  <dd>{result.domain.sureHit}</dd>
+                </div>
+              </dl>
+            </section>
             <a
               className="share-link"
               href={makeShareUrl(submittedName, result.name)}

@@ -1,6 +1,6 @@
 # Random Curse Power Pick
 
-A funny fan-made Vite React TypeScript site that turns a nickname into a deterministic cursed power with anime-occult vibes. The same nickname always maps to the same result, so reloads and shared URLs stay stable.
+A funny fan-made Vite React TypeScript site that turns a nickname into a deterministic cursed technique with anime-occult vibes. The same nickname always maps to the same result, so reloads and shared URLs stay stable.
 
 This is original parody-style content. It uses themes like curses, domains, shikigami, binding vows, and reversed techniques without copying long copyrighted prose.
 
@@ -35,17 +35,21 @@ GitHub Pages must use GitHub Actions as its source. Pushes to `main` run dataset
 
 - The user enters a nickname in the accessible form.
 - `src/powers.ts` normalizes and hashes the nickname with a deterministic FNV-style hash.
-- The hash selects one entry from the local generated `cursePowers` dataset.
+- The hash selects one entry from the local `cursePowers` dataset of 500 cursed techniques.
+- The result shows the technique name, category, grade, descriptive effect, binding drawback, and Domain Expansion details.
 - The selected nickname is written to the `?name=` query parameter, keeping reloads and shared links stable.
 - The X/Twitter share button uses an intent URL and includes the current deterministic result URL.
 
 ## Dataset Generation
 
-The dataset is generated locally in source from original word banks in `src/powers.ts`:
+The dataset is generated locally in source from curated seeds and original word banks in `src/powers.ts`:
 
-- `CURSE_POWER_COUNT` is set to `6201`, which is more than the required 6000 powers.
-- `cursePowers` is created with `Array.from({ length: CURSE_POWER_COUNT }, ...)`.
-- Each generated power receives a stable id, name, category, grade, description, and drawback.
+- `CURSE_POWER_COUNT` is set to exactly `500`.
+- The first entries are short, original/paraphrased fan interpretations inspired by named techniques from Jujutsu Kaisen.
+- The remaining entries are original fan-made techniques generated from local word banks.
+- `cursePowers` is created with `Array.from({ length: CURSE_POWER_COUNT }, ...)` so ids and nickname picks stay stable.
+- Each technique receives a stable id, distinct name, category, grade, description, binding drawback, and Domain Expansion.
+- Each Domain Expansion includes a domain name, environment, and sure-hit effect.
 - No network calls are required to generate or pick results.
 
-`scripts/verify-dataset.mjs` checks that the dataset count is above 6000, that the source generates from `CURSE_POWER_COUNT`, that deterministic picker exports exist, and that the MVP source does not use network calls.
+`scripts/verify-dataset.mjs` checks exactly 500 records, unique ids, unique technique names, unique domain names, required domain fields, deterministic picker exports/behavior, and no network calls.

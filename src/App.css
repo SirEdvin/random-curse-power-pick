@@ -135,6 +135,7 @@
 
 .description,
 .drawback,
+.domain-panel dd,
 .empty-state p:last-child {
   color: var(--muted);
 }
@@ -145,11 +146,51 @@
 }
 
 .drawback {
-  margin: 0 0 28px;
+  margin: 0 0 20px;
 }
 
 .drawback strong {
   color: var(--text);
+}
+
+.domain-panel {
+  margin: 0 0 28px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--chip);
+  padding: 18px;
+}
+
+.domain-kicker {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.domain-panel h3 {
+  margin: 0 0 14px;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+}
+
+.domain-panel dl {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.domain-panel dt {
+  margin-bottom: 3px;
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.domain-panel dd {
+  margin: 0;
 }
 
 .share-link {
